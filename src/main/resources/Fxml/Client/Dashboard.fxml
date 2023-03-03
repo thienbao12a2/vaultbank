@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.vaultbank.Controllers.Client.DashboardController">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/Dashboard.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.vaultbank.Controllers.Client.DashboardController">
     <Text fx:id="user_name" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Hi, Bao" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
     <Label fx:id="login_date" styleClass="date_label" text="Today, 2022-02-25" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0" />
     <Text layoutX="802.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Account Summary" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="90.0" />

@@ -8,8 +8,8 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-   <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="left_container">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.vaultbank.Controllers.Client.ClientMenuController">
+   <AnchorPane prefHeight="730.0" prefWidth="199.0" styleClass="left_container">
       <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <FontAwesomeIconView glyphName="BANK" size="30" />
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vault Bank" />
@@ -36,7 +36,7 @@
                <FontAwesomeIconView glyphName="USER" size="20" />
             </graphic>
          </Button>
-         <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Logout">
+         <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Sign out">
             <graphic>
                <FontAwesomeIconView glyphName="SIGN_OUT" size="20" />
             </graphic>

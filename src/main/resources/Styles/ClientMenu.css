@@ -1,11 +1,12 @@
 .main_menu_container {
   -fx-background-color: #eeeeee;
   -fx-alignment: center;
+  -fx-padding: 0 10 0 10;
 }
 
 .left_container {
   -fx-background-color: #ffffff;
-  -fx-background-radius: 10 0 10 0;
+  -fx-background-radius: 10;
   -fx-effect: dropshadow(two-pass-box, #aaaaaa, 5, 0, 0, 4);
 }
 
@@ -23,6 +24,7 @@
 .title_container Text {
   -fx-fill: #000000;
   -fx-font-size: 2em;
+  -fx-font-family: "zekton";
 }
 
 .menu_container {
