@@ -4,6 +4,7 @@ import com.jmc.vaultbank.Models.Model;
 import com.jmc.vaultbank.Views.AdminMenuOptions;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,9 +21,10 @@ public class AdminMenuController implements Initializable {
         addListener();
     }
     public void addListener() {
-        create_client_btn.setOnAction((event -> onCreateClient()));
-        my_clients_btn.setOnAction((event -> onClients()));
-        deposit_btn.setOnAction((event -> onDeposit()));
+        create_client_btn.setOnAction(event -> onCreateClient());
+        my_clients_btn.setOnAction(event -> onClients());
+        deposit_btn.setOnAction(event -> onDeposit());
+        sign_out_btn.setOnAction(event -> onLogout());
     }
     private void onCreateClient() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.CREATE_CLIENT);
@@ -32,5 +34,11 @@ public class AdminMenuController implements Initializable {
     }
     private void onDeposit() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.DEPOSIT);
+    }
+    private void onLogout() {
+        Stage stage = (Stage) my_clients_btn.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeState(stage);
+        Model.getInstance().getViewFactory().showLoginWindow();
+        Model.getInstance().setAdminSuccessLogin(false);
     }
 }

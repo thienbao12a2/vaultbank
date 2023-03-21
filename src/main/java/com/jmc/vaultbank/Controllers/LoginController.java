@@ -26,19 +26,38 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         acc_selector.setItems(FXCollections.observableArrayList(AccountType.CLIENT, AccountType.ADMIN));
         acc_selector.setValue(Model.getInstance().getViewFactory().getLoginAccountType());
-        acc_selector.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setLoginAccountType(acc_selector.getValue()));
+        acc_selector.valueProperty().addListener(observable -> setAccount_selector());
         signin_btn.setOnAction(event -> onLogin());
     }
     private void onLogin() {
         Stage stage = (Stage) error_label.getScene().getWindow();
-        Model.getInstance().getViewFactory().closeState(stage);
         if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CLIENT) {
-            Model.getInstance().getViewFactory().showClientWindow();
+            Model.getInstance().evaluateClientCred(username_field.getText(), password_field.getText());
+            if (Model.getInstance().getClientSuccessLogin()) {
+                Model.getInstance().getViewFactory().showClientWindow();
+                Model.getInstance().getViewFactory().closeState(stage);
+            } else {
+                error_label.setText("Incorrect Username or Password!");
+            }
         } else {
-            Model.getInstance().getViewFactory().showAdminWindow();
+            Model.getInstance().evaluateAdminCred(username_field.getText(), password_field.getText());
+            if (Model.getInstance().getAdminSuccessLogin()) {
+                Model.getInstance().getViewFactory().showAdminWindow();
+                Model.getInstance().getViewFactory().closeState(stage);
+            } else {
+                error_label.setText("Incorrect Username or Password!");
+            }
         }
-
     }
+    private void setAccount_selector() {
+        Model.getInstance().getViewFactory().setLoginAccountType(acc_selector.getValue());
+        if (acc_selector.getValue() == AccountType.ADMIN) {
+            username_label.setText("Admin Username");
+        } else {
+            username_label.setText("Username");
+        }
+    }
+
 
 
 }

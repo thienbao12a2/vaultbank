@@ -4,6 +4,7 @@ import com.jmc.vaultbank.Models.Model;
 import com.jmc.vaultbank.Views.ClientMenuOptions;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,10 +22,10 @@ public class ClientMenuController implements Initializable {
         addListeners();
     }
     private void addListeners() {
-        System.out.println("123");
         dashboard_btn.setOnAction(event -> onDashboard());
         transaction_btn.setOnAction(event -> onTransactions());
         accounts_btn.setOnAction(event -> onAccounts());
+        logout_btn.setOnAction(event -> onLogout());
     }
     private void onDashboard() {
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOptions.DASHBOARD);
@@ -34,5 +35,11 @@ public class ClientMenuController implements Initializable {
     }
     private void onAccounts() {
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOptions.ACCOUNTS);
+    }
+    private void onLogout() {
+        Stage stage = (Stage) dashboard_btn.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeState(stage);
+        Model.getInstance().getViewFactory().showLoginWindow();
+        Model.getInstance().setclientSuccessLogin(false);
     }
 }

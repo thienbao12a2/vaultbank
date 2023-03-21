@@ -127,6 +127,7 @@ public class ViewFactory {
         }
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.setTitle("Vault Bank");
         stage.getIcons().add(new Image("file:anonymous-logo.png"));
         stage.show();
